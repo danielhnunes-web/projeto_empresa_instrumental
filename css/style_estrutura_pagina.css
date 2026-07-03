@@ -92,6 +92,10 @@
     border-radius: 8px;
 }
 
+.card:hover{
+    transform: translateY(-5px);
+}
+
 .card img{
     width: 150px;
     height: 200px;
@@ -145,7 +149,7 @@
 }
 
 #menu a:hover{
-    font-size: 1.6em;
+    font-size: 1.5em;
     text-transform: uppercase;
     letter-spacing: 5px;
     text-decoration: none;
@@ -153,7 +157,7 @@
 }
 
 #menu a:active{
-    font-size: 1.6em;
+    font-size: 1.5em;
     text-transform: uppercase;
     letter-spacing: 5px;
     text-decoration: none;
