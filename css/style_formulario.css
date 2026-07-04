@@ -1,0 +1,105 @@
+@import url(style_estrutura_pagina.css);
+
+body{
+    background:#f5f7fb;
+}
+
+#form{
+
+    width:100%;
+    max-width:800px;
+    margin:50px auto;
+    background:white;
+    padding:40px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,.1);
+}
+
+#form h3{
+    color:var(--cor02);
+    text-align:center;
+    margin-bottom:10px;
+    font-size:2rem;
+}
+
+#form p{
+    text-align:center;
+    color:#666;
+    margin-bottom:30px;
+}
+
+#form-pessoa{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.linha{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.campo{
+    display:flex;
+    flex-direction:column;
+}
+
+.campo label{
+    font-weight:bold;
+    margin-bottom:8px;
+    color:#444;
+}
+
+.campo input,
+.campo select{
+    height:45px;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:16px;
+    transition:.3s;
+}
+
+.campo input:focus,
+.campo select:focus{
+
+    outline:none;
+    border-color:var(--cor02);
+    box-shadow:0 0 8px rgba(108,99,255,.3);
+}
+
+.termos{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:15px;
+}
+
+.termos input{
+    width:18px;
+    height:18px;
+}
+
+.botoes{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+}
+
+.botoes button{
+    width:180px;
+    height:45px;
+    border:none;
+    border-radius:8px;
+    background:var(--cor02);
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.botoes button:hover{
+    background:var(--cor05);
+}
