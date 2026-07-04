@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harmoniq</title>
+
+    <link rel="stylesheet" href="../css/style_formulario.css">
+</head>
+<body>
+    <main id="geral">
+        <header id="cabecalho">
+            <div id="logo">
+                Harmoniq
+            </div>
+
+            <nav id="menu">
+                <ul>
+                    <li><a href="cadastro.html">Cadastro</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="carrinho.html"><img src="../image/icones/16316627108573499327.png" alt="Carrinho"></a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section id="form">
+            <h3>Cadastre-se</h3>
+
+            <p>Preencha os dados abaixo para criar sua conta na Harmoniq.</p>
+
+            <form id="form-pessoa">
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" id="nome" required maxlength="60" placeholder="Digite seu nome">
+
+                <label for="sobrenome">Sobrenome</label>
+                <input type="text" name="sobrenome" id="sobrenome" required maxlength="60" placeholder="Digite seu sobrenome">
+
+                <label for="cpf">CPF</label>
+                <input type="text" name="cpf" id="cpf" required maxlength="14" placeholder="000.000.000-00">
+
+                <label for="telefone">Telefone</label>
+                <input type="tel" name="telefone" id="telefone" required maxlength="15" placeholder="(11) 99999-9999">
+
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required maxlength="40" placeholder="Digite seu e-mail">
+
+                <label for="data">Data de Nascimento</label>
+                <input type="date" name="data" id="data" required maxlength="10" placeholder="Digite sua data de nascimento">
+
+                <label for="cep">CEP</label>
+                <input type="text" name="cep" id="cep" required maxlength="9" placeholder="00000-000">
+
+                <label for="logradouro">Logradouro</label>
+                <input type="text" name="logradouro" id="logradouro" required maxlength="40" placeholder="Digite seu logradouro">
+
+                <label for="numero">Número</label>
+                <input type="number" name="numero" id="numero" required maxlength="5" placeholder="Digite o Número">
+
+                <label for="complemento">Complemento</label>
+                <input type="text" name="complemento" id="complemento" required maxlength="50" placeholder="Complemento">
+
+                <label for="bairro">Bairro</label>
+                <input type="text" name="bairro" id="bairro" required maxlength="30" placeholder="Digite o Bairro">
+
+                <label for="cidade">Cidade</label>
+                <input type="text" name="cidade" id="cidade" required maxlength="30" placeholder="Digite a Cidade">
+
+                <label for="estado">Estado</label>
+                <select name="estado" id="estado" required>
+                    <option value="">Selecione um estado</option>
+                
+                    <option value="AC">Acre</option>
+                    <option value="AL">Alagoas</option>
+                    <option value="AP">Amapá</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Ceará</option>
+                    <option value="DF">Distrito Federal</option>
+                    <option value="ES">Espírito Santo</option>
+                    <option value="GO">Goiás</option>
+                    <option value="MA">Maranhão</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="PA">Pará</option>
+                    <option value="PB">Paraíba</option>
+                    <option value="PR">Paraná</option>
+                    <option value="PE">Pernambuco</option>
+                    <option value="PI">Piauí</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="RN">Rio Grande do Norte</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="RO">Rondônia</option>
+                    <option value="RR">Roraima</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="SE">Sergipe</option>
+                    <option value="TO">Tocantins</option>
+                </select>
+
+                <label for="senha">Senha</label>
+                <input type="password" name="senha" id="senha" class="input-03" required maxlength="10" placeholder="Digite a Senha">
+
+                <label for="confirmarSenha">Confirmar senha</label>
+                <input type="password" name="confirmarSenha" id="confirmarSenha" required placeholder="Digite novamente sua senha">
+
+                <label class="termos">
+
+                    <input type="checkbox" required>                   
+                    Li e aceito os Termos de Uso.                   
+                </label>
+
+                <div class="botoes">
+                    <button type="submit">Cadastrar</button>
+                    <button type="reset">Limpar</button>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
