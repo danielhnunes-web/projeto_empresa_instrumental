@@ -1,0 +1,25 @@
+@import url(style_estrutura_pagina.css);
+
+#sobre{
+    max-width:900px;
+    margin:50px auto;
+    padding:30px;
+    background:white;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+#sobre h1{
+    text-align:center;
+    color:var(--cor02);
+    margin-bottom:35px;
+    font-size:2.5rem;
+}
+
+#sobre p{
+    text-align:justify;
+    font-size:18px;
+    line-height:1.8;
+    margin-bottom:22px;
+    color:#444;
+}
