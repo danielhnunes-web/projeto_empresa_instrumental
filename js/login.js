@@ -7,11 +7,11 @@ function login(){
 
     if(!usuario){
 
-        alert("Nenhum usuário cadastrado!");
+        alert("Nenhum usuário encontrado. Faça o cadastro primeiro!");
         return;
     }
 
-    if(email === usuario.email && senha === usuario.senha){
+    if(email == usuario.email && senha == usuario.senha){
 
         localStorage.setItem("logado", "true");
         alert("Login realizado com sucesso!");
