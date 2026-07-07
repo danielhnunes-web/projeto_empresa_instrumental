@@ -2,7 +2,7 @@ let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
 let valorFrete = 0;
 
-function adicionarCarrinho(nome, preco){
+function adicionarCarrinho(nome, preco, imagem){
 
     const produto = carrinho.find(item => item.nome === nome);
 
@@ -12,6 +12,7 @@ function adicionarCarrinho(nome, preco){
         carrinho.push({
             nome,
             preco,
+            imagem,
             quantidade: 1
         });
     }
@@ -52,6 +53,8 @@ function atualizarCarrinho() {
 
         lista.innerHTML += `
             <li class="item-carrinho">
+            <img src="../${produto.imagem}" alt="${produto.nome}" class="imagem-carrinho">
+            
                 <div>
                     <strong>${produto.nome}</strong><br>
                     Quantidade: ${produto.quantidade}<br>
@@ -89,6 +92,30 @@ function atualizarContador(){
     });
 
     contador.textContent = quantidade;
+}
+
+function calcularFrete(){
+
+    const cep = document.getElementById("cep").value;
+    const resultado = document.getElementById("resultado-frete");
+
+    if(cep.length !== 8){
+
+        resultado.textContent = "Digite um CEP válido!";
+        return;
+    }
+
+    if(cep.startsWith("49")){
+
+        valorFrete = 15;
+    }else{
+        valorFrete = 35;
+    }
+
+    resultado.textContent = 
+    "Frete: R$ " + valorFrete.toFixed(2).replace(".", ",");
+
+    atualizarCarrinho();
 }
 
 window.onload = function(){
