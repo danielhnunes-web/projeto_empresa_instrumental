@@ -6,6 +6,8 @@
     <title>Harmoniq</title>
 
     <link rel="stylesheet" href="../css/style_formulario.css">
+
+    <script src="../js/cadastro.js"></script>
 </head>
 <body>
     <main id="geral">
@@ -29,7 +31,7 @@
 
             <p>Preencha os dados abaixo para criar sua conta na Harmoniq.</p>
 
-            <form id="form-pessoa">
+            <form onsubmit="event.preventDefault(); cadastrar();" id="form-pessoa">
                 <label for="nome">Nome</label>
                 <input type="text" name="nome" id="nome" required maxlength="60" placeholder="Digite seu nome">
 
