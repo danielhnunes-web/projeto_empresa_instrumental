@@ -6,6 +6,8 @@
     <title>Harmoniq</title>
 
     <link rel="stylesheet" href="../css/style_carrinho.css">
+
+    <script src="../js/carrinho.js" defer></script>
 </head>
 <body>
 
@@ -21,9 +23,9 @@
                     <li><a href="sobre.html">Sobre</a></li>
                     <li><a href="cadastro.html">cadastro</a></li>
                     <li><a href=""></a></li>
-                    <li><a href="carrinho.html" class="carrinho">
-                            <img src="../image/icones/16316627108573499327.png" alt="carrinho">
-                            <span class="contador">2</span>
+                    <li><a href="carrinho.html" class="icone-carrinho">
+                            <img src="../image/icones/16316627108573499327.png" alt="Carrinho">
+                            <span id="contador" class="contador">0</span>
                         </a>
                     </li>
                 </ul>
@@ -31,73 +33,32 @@
 
         </header>
 
-        <section id="tituloCarrinho">
-            <h1>Carrinho de Compras</h1>
+        <section class="carrinho">
+            <h2>Carrinho de Compras</h2>
+        
+            <ul id="lista-carrinho">
+                
+            </ul>
+        
+            <div class="total">
+                <h3>Total dos produtos: R$ <span id="total">0,00</span></h3>
+            </div>
+        
+            <div class="frete">
+                <h3>Calcular Frete</h3>
+        
+                <input type="text" id="cep" placeholder="Digite seu CEP" maxlength="8">
+        
+                <button onclick="calcularFrete()">Calcular</button>
+        
+                <p id="resultado-frete"></p>
+            </div>
+        
+            <div class="total-final">
+                <h3>Total com frete: R$ <span id="total-final">0,00</span></h3>
+            </div>
+        
         </section>
-
-        <main id="carrinho">
-            <section id="produtosCarrinho">
-                <article class="produto">
-                    <img src="../image/guitarra_les_paul.png" alt="guitarra_les_paul">
-
-                    <div class="informacoes">
-                        <h2>Guitarra les Paul</h2>
-                        <p>R$ 1.400,00</p>
-
-                    </div>
-                    
-                    <input type="number" value="1" min="1">
-
-                    <h3>R$ 1.400,00</h3>
-                    <button></button>
-                    <button class="remover" title="Remover">
-                        x
-                    </button>
-
-                </article>
-
-                <article class="produto">
-                    <img src="../image/baixo_eletrico.png" alt="Baixo">
-
-                    <div class="informacoes">
-                        <h2>Baixo Elétrico</h2>
-                        <p>R$ 1.600,00</p>
-
-                    </div>
-
-                    <input type="number" value="1" min="1">
-                    <h3>R$ 1.600,00</h3>
-                    <button></button>
-                    <button class="remover" title="Remover">
-                        x
-                    </button>
-                    
-                </article>
-            </section>
-
-            <aside id="resumoCompra">
-                <h2>Resumo do Pedido</h2>
-
-                <input type="text" placeholder="Digite seu CEP">
-                <div class="linha">
-                    <span>Subtotal</span>
-                    <strong>R$ 3.000,00</strong>
-                </div>
-
-                <div class="linha">
-                    <span>Frete</span>
-                    <strong>R$ 40,00</strong>
-                </div>
-
-                <div class="linha total">
-                    <span>Total</span>
-                    <strong>R$ 3.040,00</strong>
-                </div>
-
-                <button class="continuar">Continuar Comprando</button>
-                <button class="finalizar">Finalizar Compra</button>
-            </aside>
-        </main>
 
         <footer id="rodape">
             <h2>Harmoniq</h2>
