@@ -91,28 +91,6 @@ function atualizarContador(){
     contador.textContent = quantidade;
 }
 
-function calcularFrete(){
-
-    const cep = document.getElementById("cep").value;
-    const resultado = document.getElementById("resultado-frete");
-
-    if(cep.length !== 8){
-        resultado.textContent = "Digite um CEP válido!";
-        return;
-    }
-
-    if(cep.startsWith("49")){
-        valorFrete = 15;
-    }else{
-        valorFrete = 35;
-    }
-
-    resultado.textContent = 
-    "Frete: R$ " + valorFrete.toFixed(2).replace(".", ",");
-
-    atualizarCarrinho();
-}
-
 window.onload = function(){
 
     carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
