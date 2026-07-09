@@ -228,3 +228,17 @@ body{
     letter-spacing: 5px;
     color: var(--cor05);
 }
+
+h1{
+    width: 600px;
+    height: 50px;
+    text-align: center;
+    background-color: var(--branca);
+    border: 2px solid var(--cor05);
+    border-radius: 30px;
+    padding: 12px;
+    font-size: 20px;
+    color: var(--cor02);
+    position: relative;
+    left: 640px;
+}
