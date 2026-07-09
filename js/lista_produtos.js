@@ -50,7 +50,7 @@ const produtos = [
         descricao_produto: "Viola Caipira",
         valor_unitario: 950.00,
         unidade: "UN",
-        caminho_imagem: "../image/viola_caipira.png",
+        caminho_imagem: "image/viola_caipira.png",
         id_secao: 1,
         secao: "Cordas"
     },
