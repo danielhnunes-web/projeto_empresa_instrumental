@@ -125,3 +125,9 @@ window.onload = function(){
     atualizarContador();
     atualizarCarrinho();
 }
+
+window.adicionarCarrinho = adicionarCarrinho
+window.atualizarCarrinho = atualizarCarrinho
+window.removerProduto = removerProduto
+window.calcularFrete = calcularFrete
+window.atualizarContador = atualizarContador
