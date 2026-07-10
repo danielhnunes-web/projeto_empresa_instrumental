@@ -36,3 +36,38 @@ const listarProdutos = () => {
 }
 
 listarProdutos()
+
+
+const menuSecoes = () => {
+    const mapSecoes = new Map()
+
+    produtos.forEach((elem, i) => {
+        mapSecoes.set(elem.id_secao, elem)
+    })
+
+    const secoesFiltradas = array.from(mapSecoes.value())
+
+    return secoesFiltradas
+}
+
+const carregaSecoes = () => {
+    const ulMenuSecoes = document.querySelector('#menu-secoes')
+
+    ulMenuSecoes.innerHTML = ''
+
+    menuSecoes().forEach((elem, i) => {
+        const liMenu = document.createElement('li')
+        
+        const aMenu = document.createElement('a')
+        aMenu.setAttribute('href', '#')
+        aMenu.setAttribute('class', 'lnk-secao')
+        aMenu.innerHTML = elem.secao
+
+        liMenu.appendChild(aMenu)
+
+        ulMenuSecoes.appendChild(liMenu)
+        
+    })
+}
+
+carregaSecoes()
