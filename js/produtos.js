@@ -7,13 +7,21 @@ const listarProdutos = () => {
 
     sectionCards.innerHTML = ''
 
-    produtos.forEach((elem, i) =>{
+    const produtosExibir = typeof id_secao !== 'undefined'
+    ? produtos.filter(produtos => produtos.id_secao === id_secao)
+    :produtos
+
+    produtosExibir.forEach((elem, i) =>{
         const divCard = document.createElement('div')
         divCard.setAttribute('class', 'card')
+
+        const caminhoImagem = typeof id_secao !== 'undefined'
+        ? '../' + elem.caminho_imagem
+        :elem.caminho_imagem
     
         const imgCard = document.createElement('img')
-        imgCard.setAttribute('src', elem.caminho_imagem)
-        imgCard.setAttribute('alt', elem.descricao_produto)
+        imgCard.src = caminhoImagem
+        imgCard.alt = elem.descricao_produto
 
         const pCard = document.createElement('p')
         pCard.innerHTML = elem.descricao_produto
@@ -24,6 +32,14 @@ const listarProdutos = () => {
         const btnCard = document.createElement('button')
         btnCard.setAttribute('class', 'btn-add')
         btnCard.innerHTML = 'Adicionar'
+
+        btnCard.addEventListener('click', ()=>{
+            adicionarCarrinho(
+                elem.descricao_produto,
+                parseFloat(elem.valor_unitario),
+                elem.caminho_imagem
+            );
+        });
 
         divCard.appendChild(imgCard)
         divCard.appendChild(pCard)
@@ -41,11 +57,11 @@ listarProdutos()
 const menuSecoes = () => {
     const mapSecoes = new Map()
 
-    produtos.forEach((elem, i) => {
+    produtos.forEach((elem)=>{
         mapSecoes.set(elem.id_secao, elem)
     })
 
-    const secoesFiltradas = array.from(mapSecoes.value())
+    const secoesFiltradas = Array.from(mapSecoes.values());
 
     return secoesFiltradas
 }
@@ -63,6 +79,10 @@ const carregaSecoes = () => {
         aMenu.setAttribute('class', 'lnk-secao')
         aMenu.innerHTML = elem.secao
 
+        aMenu.addEventListener('click', ()=> {
+            montaCards(filtroProduto(elem.id_secao))
+        })
+
         liMenu.appendChild(aMenu)
 
         ulMenuSecoes.appendChild(liMenu)
@@ -71,3 +91,55 @@ const carregaSecoes = () => {
 }
 
 carregaSecoes()
+
+
+const filtroProduto = (idSecao)=> {
+    return produtos.filter(elem => elem.id_secao === idSecao)
+}
+
+
+const montaCards = (objProdutos) => {
+    sectionCards.innerHTML = ''
+
+    const produtosExibir = typeof id_secao !== 'undefined'
+    ? produtos.filter(produtos => produtos.id_secao === id_secao)
+    :produtos
+
+    produtosExibir.forEach((elem, i) =>{
+        const divCard = document.createElement('div')
+        divCard.setAttribute('class', 'card')
+
+        const caminhoImagem = typeof id_secao !== 'undefined'
+        ? '../' + elem.caminho_imagem
+        :elem.caminho_imagem
+    
+        const imgCard = document.createElement('img')
+        imgCard.src = caminhoImagem
+        imgCard.alt = elem.descricao_produto
+
+        const pCard = document.createElement('p')
+        pCard.innerHTML = elem.descricao_produto
+
+        const h2Card = document.createElement('h2')
+        h2Card.innerHTML = `R$ ${parseFloat(elem.valor_unitario).toFixed(2).replace('.', ',')}`
+
+        const btnCard = document.createElement('button')
+        btnCard.setAttribute('class', 'btn-add')
+        btnCard.innerHTML = 'Adicionar'
+
+        btnCard.addEventListener('click', ()=>{
+            adicionarCarrinho(
+                elem.descricao_produto,
+                parseFloat(elem.valor_unitario),
+                elem.caminho_imagem
+            );
+        });
+
+        divCard.appendChild(imgCard)
+        divCard.appendChild(pCard)
+        divCard.appendChild(h2Card)
+        divCard.appendChild(btnCard)
+        
+        sectionCards.appendChild(divCard)
+    })
+}
