@@ -7,6 +7,7 @@
     box-sizing: border-box;
     font-family: roboto;
 }
+
 body{
     background: var(--cor05);
 }
@@ -73,13 +74,22 @@ body{
     text-transform: uppercase;
     letter-spacing: 5px;
     text-decoration: none;
-    color: var(--cor03);
+    color: var(--cor05);
 }
 
 #menu a{
     text-decoration: none;
     font-weight: bold;
     transition: .3s;
+}
+
+#menu a:visited{
+    font-size: 1.4em;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-decoration: none;
+    color: var(--cor02);
+
 }
 
 #pesquisa{
@@ -188,14 +198,6 @@ body{
     justify-content: center;
 }
 
-#menu a:visited{
-    font-size: 1.4em;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    text-decoration: none;
-    color: var(--cor02);
-
-}
 
 #secoes-produtos ul{
     width: 100%;
@@ -227,18 +229,4 @@ body{
     text-transform: uppercase;
     letter-spacing: 5px;
     color: var(--cor05);
-}
-
-h1{
-    width: 600px;
-    height: 50px;
-    text-align: center;
-    background-color: var(--branca);
-    border: 2px solid var(--cor05);
-    border-radius: 30px;
-    padding: 12px;
-    font-size: 20px;
-    color: var(--cor02);
-    position: relative;
-    left: 640px;
 }
