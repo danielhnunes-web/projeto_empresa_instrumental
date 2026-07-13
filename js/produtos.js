@@ -99,35 +99,28 @@ const filtroProduto = (idSecao)=> {
 
 
 const montaCards = (objProdutos) => {
-    sectionCards.innerHTML = ''
+    sectionCards.innerHTML = '';
 
-    const produtosExibir = typeof id_secao !== 'undefined'
-    ? produtos.filter(produtos => produtos.id_secao === id_secao)
-    :produtos
+    objProdutos.forEach((elem) => {
 
-    produtosExibir.forEach((elem, i) =>{
-        const divCard = document.createElement('div')
-        divCard.setAttribute('class', 'card')
+        const divCard = document.createElement('div');
+        divCard.className = 'card';
 
-        const caminhoImagem = typeof id_secao !== 'undefined'
-        ? '../' + elem.caminho_imagem
-        :elem.caminho_imagem
-    
-        const imgCard = document.createElement('img')
-        imgCard.src = caminhoImagem
-        imgCard.alt = elem.descricao_produto
+        const imgCard = document.createElement('img');
+        imgCard.src = elem.caminho_imagem;
+        imgCard.alt = elem.descricao_produto;
 
-        const pCard = document.createElement('p')
-        pCard.innerHTML = elem.descricao_produto
+        const pCard = document.createElement('p');
+        pCard.textContent = elem.descricao_produto;
 
-        const h2Card = document.createElement('h2')
-        h2Card.innerHTML = `R$ ${parseFloat(elem.valor_unitario).toFixed(2).replace('.', ',')}`
+        const h2Card = document.createElement('h2');
+        h2Card.textContent = `R$ ${parseFloat(elem.valor_unitario).toFixed(2).replace('.', ',')}`;
 
-        const btnCard = document.createElement('button')
-        btnCard.setAttribute('class', 'btn-add')
-        btnCard.innerHTML = 'Adicionar'
+        const btnCard = document.createElement('button');
+        btnCard.className = 'btn-add';
+        btnCard.textContent = 'Adicionar';
 
-        btnCard.addEventListener('click', ()=>{
+        btnCard.addEventListener('click', () => {
             adicionarCarrinho(
                 elem.descricao_produto,
                 parseFloat(elem.valor_unitario),
@@ -135,11 +128,36 @@ const montaCards = (objProdutos) => {
             );
         });
 
-        divCard.appendChild(imgCard)
-        divCard.appendChild(pCard)
-        divCard.appendChild(h2Card)
-        divCard.appendChild(btnCard)
+        divCard.appendChild(imgCard);
+        divCard.appendChild(pCard);
+        divCard.appendChild(h2Card);
+        divCard.appendChild(btnCard);
+
+        sectionCards.appendChild(divCard);
+    });
+};
+
+
+
+const campoPesquisa = document.getElementById('campo-pesquisa');
+
+
+campoPesquisa.addEventListener('input', () => {
+   
+    const termoBusca = campoPesquisa.value.toLowerCase();
+    
+    
+    const cards = document.querySelectorAll('#cards .card');
+
+    cards.forEach(card => {
+       
+        const nomeProduto = card.querySelector('p').textContent.toLowerCase();
+
         
-        sectionCards.appendChild(divCard)
-    })
-}
+        if (nomeProduto.includes(termoBusca)) {
+            card.style.display = ''; 
+        } else {
+            card.style.display = 'none'; 
+        }
+    });
+});
