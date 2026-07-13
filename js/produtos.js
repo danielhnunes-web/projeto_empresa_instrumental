@@ -141,11 +141,9 @@ const montaCards = (objProdutos) => {
 
 const campoPesquisa = document.getElementById('campo-pesquisa');
 
-
 campoPesquisa.addEventListener('input', () => {
    
     const termoBusca = campoPesquisa.value.toLowerCase();
-    
     
     const cards = document.querySelectorAll('#cards .card');
 
@@ -153,7 +151,6 @@ campoPesquisa.addEventListener('input', () => {
        
         const nomeProduto = card.querySelector('p').textContent.toLowerCase();
 
-        
         if (nomeProduto.includes(termoBusca)) {
             card.style.display = ''; 
         } else {
