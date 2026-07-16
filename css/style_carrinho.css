@@ -266,6 +266,36 @@ body{
     font-weight: bold;
 }
 
+.controle-quantidade{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 8px 0;
+}
+
+.controle-quantidade button{
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    background: var(--cor05);
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    transition: .2s;
+}
+
+.controle-quantidade button:hover{
+    background: var(--cor02);
+}
+
+.controle-quantidade span{
+    min-width: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
 .botoes-carrinho{
     display: flex;
     justify-content: flex-end;
