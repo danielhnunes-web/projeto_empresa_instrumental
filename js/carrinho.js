@@ -162,6 +162,35 @@ function calcularFrete(){
     atualizarCarrinho();
 }
 
+function finalizarCompra(){
+
+    if(carrinho.length === 0){
+        alert("Seu carrinho está vazio!");
+        return;
+    }
+
+    alert("Compra realizada com sucesso! Obrigado pela preferência.");
+
+    carrinho = [];
+
+    localStorage.removeItem("carrinho");
+
+    valorFrete = 0;
+
+    atualizarContador();
+    atualizarCarrinho();
+
+    const resultado = document.getElementById("resultado-frete");
+    if(resultado){
+        resultado.textContent = "";
+    }
+
+    const cep = document.getElementById("cep");
+    if(cep){
+        cep.value = "";
+    }
+}
+
 window.onload = function(){
 
     carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
@@ -177,3 +206,4 @@ window.calcularFrete = calcularFrete;
 window.atualizarContador = atualizarContador;
 window.aumentarQuantidade = aumentarQuantidade;
 window.diminuirQuantidade = diminuirQuantidade;
+window.finalizarCompra = finalizarCompra;
