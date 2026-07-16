@@ -33,6 +33,40 @@ function removerProduto(nome){
     atualizarCarrinho();
 }
 
+function aumentarQuantidade(nome){
+
+    const produto = carrinho.find(item => item.nome === nome);
+
+    if(produto){
+        produto.quantidade++;
+    }
+
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+
+    atualizarContador();
+    atualizarCarrinho();
+}
+
+function diminuirQuantidade(nome){
+
+    const produto = carrinho.find(item => item.nome === nome);
+
+    if(produto){
+
+        produto.quantidade--;
+
+        if(produto.quantidade <= 0){
+            removerProduto(nome);
+            return;
+        }
+    }
+
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+
+    atualizarContador();
+    atualizarCarrinho();
+}
+
 function atualizarCarrinho() {
 
     const lista = document.getElementById("lista-carrinho");
@@ -55,11 +89,21 @@ function atualizarCarrinho() {
             <li class="item-carrinho">
             <img src="../${produto.imagem}" alt="${produto.nome}" class="imagem-carrinho">
             
-                <div>
-                    <strong>${produto.nome}</strong><br>
-                    Quantidade: ${produto.quantidade}<br>
-                    R$ ${(produto.preco * produto.quantidade).toFixed(2)}
+            <div>
+                <strong>${produto.nome}</strong><br>
+            
+                <div class="controle-quantidade">
+                    <button onclick="diminuirQuantidade('${produto.nome}')">−</button>
+            
+                    <span>${produto.quantidade}</span>
+            
+                    <button onclick="aumentarQuantidade('${produto.nome}')">+</button>
                 </div>
+            
+                <strong>
+                    R$ ${(produto.preco * produto.quantidade).toFixed(2)}
+                </strong>
+            </div>
 
                 <button onclick="removerProduto('${produto.nome}')">
                     🗑️
@@ -126,8 +170,10 @@ window.onload = function(){
     atualizarCarrinho();
 }
 
-window.adicionarCarrinho = adicionarCarrinho
-window.atualizarCarrinho = atualizarCarrinho
-window.removerProduto = removerProduto
-window.calcularFrete = calcularFrete
-window.atualizarContador = atualizarContador
+window.adicionarCarrinho = adicionarCarrinho;
+window.atualizarCarrinho = atualizarCarrinho;
+window.removerProduto = removerProduto;
+window.calcularFrete = calcularFrete;
+window.atualizarContador = atualizarContador;
+window.aumentarQuantidade = aumentarQuantidade;
+window.diminuirQuantidade = diminuirQuantidade;
