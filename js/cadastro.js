@@ -16,7 +16,7 @@ function cadastrar(){
         cpf: document.getElementById("cpf").value,
         telefone: document.getElementById("telefone").value,
         email: document.getElementById("email").value,
-        senha: senha
+       senha: senha
     };
 
     localStorage.setItem(
