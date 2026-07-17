@@ -58,6 +58,23 @@ body{
     transition: .3s;
 }
 
+#menu a:active{
+    font-size: 1.5em;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-decoration: none;
+    color: var(--cor05);
+}
+
+#menu a:visited{
+    font-size: 1.4em;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-decoration: none;
+    color: var(--cor02);
+    
+}
+
 #menu a:hover{
     color: var(--cor05);
 }
